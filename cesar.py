@@ -84,12 +84,15 @@ with open(filename) as f:
      ch_1 = Letters(result) 
      #append to the end of the shifted list
      shifted.append(ch_1.name)
+     break
     elif(ch == '\n'):
      shifted.append('\n')    #do the same if we find a newline
+     break
     elif(ch == ' '):
      shifted.append(' ')     #do the same if we find a space
+     break
     #else:
-     #print() #prints a bunch of newlines don't actually need it 
+     #print() prints a bunch of newlines don't actually need it 
 
 #close the file to prevent leaks
 f.close()
