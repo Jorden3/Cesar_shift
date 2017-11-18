@@ -8,7 +8,7 @@ shifted = []
 #define the amount to shift
 shift = 6
 #Give a .txt name to parse and shift
-filename = "gettys.txt"
+filename = "shifted.txt"
 
 #open the file
 with open(filename) as f:
@@ -21,10 +21,10 @@ with open(filename) as f:
     #Check if the letter matches the a enum
     if(letters.name == ch):
 	 #find the shifted letter
-     result = letters.value + shift
+     result = letters.value - shift
      #if we are out of the enum bounds sub 52 from result to get overflow
-     if(result > 52):
-      result = result - 52
+     if(result < 0):
+      result = 52 + result
      #grab the letter using the result from above
      ch_1 = Letters1(result) 
      #append to the end of the shifted list
@@ -43,11 +43,11 @@ with open(filename) as f:
 f.close()
 
 #open a new file called shifted
-theFile = open("shifted.txt", 'w')
+theFile = open("unshifted.txt", 'w')
 #iterate shifted and dump it into the file
 for ch_2 in shifted:
  theFile.write(ch_2)
 
 #close the file and report success
 theFile.close()
-print("text shifted and new shifted.txt add to current directory")
+print("Text unshifted and new unshifted.txt add to current directory")
